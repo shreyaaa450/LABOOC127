@@ -1,80 +1,96 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 class Matrix {
-    public :
+public:
     int a[3][3];
     int b[3][3];
     int result[3][3];
 
-  
-
-    void getInput()
-    {
-        cout<<"Enter values for matrix A :"<<endl;
-
-        for(int i = 0;i < 3;i++){
-            for(int j = 0; j < 3;j++){
-                cin>>a[i][j];
+    void getInput() {
+        cout << "Enter values for matrix A:" << endl;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                cin >> a[i][j];
             }
-            cout<<endl;
         }
 
-        cout<<"Enter values for matrix B :"<<endl;
-
-        for(int i = 0;i < 3;i++){
-            for(int j = 0; j < 3;j++){
-                cin>>b[i][j];
+        cout << "Enter values for matrix B:" << endl;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                cin >> b[i][j];
             }
-            cout<<endl;
         }
-
-
-
     }
 
-    Matrix operator +(Matrix & m1){
+    Matrix operator+(Matrix &m1) {
         Matrix t;
-       
-        for(int i = 0;i < 3;i++){
-            for(int j = 0; j < 3;j++){
-              t.result = m.a[i][j] + m.b[i][j];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                t.result[i][j] = a[i][j] + m1.a[i][j];
             }
-           }
-           return t;
+        }
+        return t;
     }
 
-
-    Matrix operator -(Matrix & m1){
+    Matrix operator-(Matrix &m1) {
         Matrix t;
-       
-        for(int i = 0;i < 3;i++){
-            for(int j = 0; j < 3;j++){
-              t.result = m.a[i][j] - m.b[i][j];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                t.result[i][j] = a[i][j] - m1.a[i][j];
             }
-           }
-           return t;
-    }
-    Matrix operator ==(Matrix &m1){
-
-        if(m1.a[3][3] == m1.b[3][3]){
-           cout<<"matrices are equal"
         }
-        else{
-            cout<<"matrices are not equal"
-        }
+        return t;
     }
 
+    bool operator==(Matrix &m1) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (a[i][j] != m1.a[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    void display() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                cout << result[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
 };
 
-int main (){
-    Matrix m1;
+int main() {
+    Matrix m1, m2, sum, diff;
+
     m1.getInput();
 
-    cout<<"Addition of matrix :"<<m1.a + m1.b<<endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            m2.a[i][j] = m1.b[i][j];
+        }
+    }
 
-    cout<<"Addition of matrix :"<<m1.a - m1.b<<endl;
+    sum = m1 + m2;
+    diff = m1 - m2;
 
-    cout<<m1.a == m1.b <<endl;
+    cout << "Addition of matrices:" << endl;
+    sum.display();
 
+    cout << "Subtraction of matrices:" << endl;
+    diff.display();
+
+    if (m1 == m2) {
+        cout << "Matrices are equal" << endl;
+    } else {
+        cout << "Matrices are not equal" << endl;
+    }
+
+    return 0;
 }
