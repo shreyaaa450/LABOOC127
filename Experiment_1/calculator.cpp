@@ -10,15 +10,11 @@ int main()
  cout<<"Enter 2 numbers for operations :"<<endl;
  cin>>num1>>num2;
 
- double add(double,double);
- double sub(double,double);
- double multiply(double,double);
- double divide(double,double);
- double mod(double,double);
 
 
  cout<<"Choose any option :"<<endl;
  cout<<"1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Modulus\n6.Exit"<<endl;
+ cout<<"Enter choice :";
  cin>>choice;
 
  switch(choice){

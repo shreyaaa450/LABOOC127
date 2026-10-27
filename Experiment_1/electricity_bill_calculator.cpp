@@ -13,7 +13,7 @@ int main() {
     cout<<"Enter the no. of units consumend : "<<endl;
     cin>>units_consumed;
 
-    double calculate_bill(double units);
+  
     bill =  calculate_bill(units_consumed);
     
     cout<<"Dear "<<customerName<<endl;
