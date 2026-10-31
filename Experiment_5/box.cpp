@@ -43,7 +43,8 @@ class Box {
 int main(){
     Box b(10,20,45),b1;
     b.display();
-   cout<<"Volume of the box :"<< b.calculate()<<endl;;
+   cout<<"Volume of the box :"<< b.calculate()<<endl;
+   -b;
 
 }
 

@@ -8,6 +8,7 @@ private:
     int real, imag;
 
 public:
+
     Complex(int r = 0, int i = 0) : real(r), imag(i) {}
 
     Complex add(const Complex &c)
